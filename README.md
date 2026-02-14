@@ -1,4 +1,3 @@
-```markdown
 # ✨ Enchanted Trinkets - Full Stack MERN Jewelry Store
 
 Enchanted Trinkets ek modern e-commerce platform hai jo handmade jewelry ke liye banaya gaya hai. Yeh project **MERN Stack** (MongoDB, Express.js, React, Node.js) par mabni hai aur ismein products showcase karne se lekar checkout tak ka poora flow shamil hai.

@@ -1050,4 +1050,39 @@ display: flex;
     font-size: 0.9rem;
     white-space: nowrap;
   }
+}/* ✅ Fix for 1024x600 (Nest Hub / Tablet Landscape) */
+@media screen and (max-width: 1024px) {
+  
+  /* Spacing kam karein taake content fit ho sakay */
+  .main-product {
+    padding: 30px 5%;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  /* Image aur Info ko 100% width ki jagah 48% dein taake woh side-by-side rahein */
+  .product-images, 
+  .product-info {
+    flex: 1 1 45%;
+    min-width: 300px;
+  }
+
+  /* Product title ka size thora chota karein */
+  .product-title {
+    font-size: 3rem !important;
+    line-height: 1.1;
+  }
+
+  /* Related Products ko 2 ya 3 columns mein set karein */
+  .related-products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  /* Selection row (Size & Qty) ko wrap hone dein */
+  .selection-row {
+    max-width: 100%;
+    flex-wrap: wrap;
+  }
 }

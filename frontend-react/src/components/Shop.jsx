@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Link import karein
 
 const categories = [
-  { name: 'Ring', img: '/images/ring.jpg', class: 'card1-outer' },
-  { name: 'Earring', img: '/images/earring.jpg', class: 'card2-outer' },
+  { name: 'Ring', img: '/images/ivory-romance.jpg', class: 'card1-outer' },
+  { name: 'Earring', img: '/images/earring-img.jpg', class: 'card2-outer' },
   { name: 'Necklace', img: '/images/hearts.png', class: 'card3-outer' },
-  { name: 'Bracelet', img: '/images/bracelet.jpg', class: 'card4-outer' },
-  { name: 'Charm', img: '/images/charms.jpg', class: 'card5-outer' },
+  { name: 'Bracelet', img: '/images/bracelet-img.jpg', class: 'card4-outer' },
+  { name: 'Charm', img: '/images/bagcharm.jpg', class: 'card5-outer' },
 ];
 
 const Shop = () => (

@@ -4,7 +4,8 @@ import { handleContactForm, getAllContacts, deleteContact } from "../controllers
 
 const router = express.Router();
 
-const upload = multer({ dest: "uploads/" });
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
 // ✅ POST: Handle form submission
 router.post("/", upload.single("attachment"), handleContactForm);

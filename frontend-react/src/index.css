@@ -137,7 +137,7 @@ display: flex;
 section {
   height: 60vh;
   /* 60% of the viewport height */
-  background-image: url("/first.jpg");
+  background-image: url("/images/first.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

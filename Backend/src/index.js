@@ -11,28 +11,30 @@ import contactRoutes from "./routes/contact.route.js";
 import weeklyProductRoutes from "./routes/weeklyProduct.route.js";
 
 dotenv.config();
-connectDB(); // ✅ DB must connect before server starts
+connectDB(); 
 
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-// Static Files
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use("/public", express.static(path.join(__dirname, "public")));
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// ✅ Routes
+// ✅ All Routes
 app.use("/api", uploadRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api", orderRoutes);
-app.use("/api/contact", contactRoutes); // ✅ This already handles /api/contact/all
-app.use("/api/weekly-products", weeklyProductRoutes); // 👈 NEW
+app.use("/api/contact", contactRoutes); 
+app.use("/api/weekly-products", weeklyProductRoutes);
 
-// Start Server
-app.listen(PORT, () => {
-  console.log(`✅ Server is running on port ${PORT}`);
-});
+// ✅ Yeh hissa Vercel aur Local dono ko handle karega
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`✅ Server is running on port ${PORT}`);
+    });
+}
+
+export default app;

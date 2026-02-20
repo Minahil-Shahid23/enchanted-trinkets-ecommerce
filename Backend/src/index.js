@@ -10,7 +10,6 @@ import productRoutes from "./routes/product.routes.js";
 import contactRoutes from "./routes/contact.route.js";
 import weeklyProductRoutes from "./routes/weeklyProduct.route.js";
 
-
 dotenv.config();
 connectDB(); // ✅ DB must connect before server starts
 
@@ -32,7 +31,6 @@ app.use("/api/products", productRoutes);
 app.use("/api", orderRoutes);
 app.use("/api/contact", contactRoutes); // ✅ This already handles /api/contact/all
 app.use("/api/weekly-products", weeklyProductRoutes); // 👈 NEW
-
 
 // Start Server
 app.listen(PORT, () => {

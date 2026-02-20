@@ -957,3 +957,97 @@ display: flex;
   font-size: 15px;
   white-space: nowrap; /* Text ko niche jane se rokega */
 }
+
+/* --- UNIVERSAL RESPONSIVE FIXES --- */
+
+/* 1. Navbar Fix: Mobile par links overlap na hon */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+  .nav-links {
+    gap: 15px;
+    font-size: 1.2rem; /* Thoda chota font mobile ke liye */
+  }
+  .search {
+    width: 100%;
+    justify-content: center;
+  }
+  .search-prod {
+    width: 80%; /* Input bar mobile par barabar nazar aaye */
+  }
+}
+
+/* 2. Main Product Section Fix (The biggest issue) */
+@media (max-width: 900px) {
+  .main-product {
+    padding: 20px 5%; /* Spacing kam karein */
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-images, .product-info {
+    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+  }
+  .main-img {
+    height: auto; /* Height auto karein taake image stretch na ho */
+    max-height: 400px;
+  }
+}
+
+/* 3. Selection Row & Buttons Fix */
+@media (max-width: 480px) {
+  .selection-row {
+    flex-direction: column; /* Size aur Qty ek ke niche ek */
+    gap: 10px;
+  }
+  .actions {
+    flex-direction: column; /* Add to Cart aur Buy Now ek ke niche ek */
+    width: 100%;
+  }
+  .actions button {
+    width: 100%;
+    padding: 12px;
+  }
+  .product-title {
+    font-size: 2.5rem; /* Text size chota karein */
+    text-align: center;
+  }
+}
+
+/* 4. Related Products Grid Fix */
+@media (max-width: 600px) {
+  .related-products {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Mobile par 2 products ek line mein */
+    gap: 10px;
+    padding: 10px;
+  }
+  .related-card {
+    width: 100%; /* Column ki poori width le lega */
+    padding: 10px;
+  }
+  .related-card img {
+    height: 150px; /* Choti screens par image height kam */
+  }
+  .related-title {
+    font-size: 2rem;
+  }
+}
+
+/* 5. Tabs Mobile View */
+@media (max-width: 600px) {
+  .tabs {
+    gap: 10px;
+    overflow-x: auto; /* Agar tabs zyada hon toh scroll ho sakein */
+    justify-content: flex-start;
+    padding-bottom: 5px;
+  }
+  .tab {
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+}

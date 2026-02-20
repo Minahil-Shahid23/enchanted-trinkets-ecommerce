@@ -4,7 +4,7 @@ import axios from "axios";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import "../styles/product.css";
-
+const BASE_URL = 'https://enchanted-backend.vercel.app';
 const ProductDetail = ({ addToCart, cartCount }) => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -23,17 +23,17 @@ const ProductDetail = ({ addToCart, cartCount }) => {
         let mainProd;
 
         try {
-          const res = await axios.get(`http://localhost:8025/api/products/${id}`);
+const res = await axios.get(`${BASE_URL}/api/products/${id}`);
           mainProd = res.data.data || res.data;
         } catch (err) {
-          const weeklyRes = await axios.get(`http://localhost:8025/api/weekly-products/${id}`);
+const weeklyRes = await axios.get(`${BASE_URL}/api/weekly-products/${id}`);
           mainProd = weeklyRes.data;
         }
 
         if (mainProd) {
           setProduct(mainProd);
 
-          const relatedRes = await axios.get(`http://localhost:8025/api/products`);
+const relatedRes = await axios.get(`${BASE_URL}/api/products`);
           let allProducts = relatedRes.data.data || relatedRes.data;
 
           if (Array.isArray(allProducts)) {
@@ -252,11 +252,7 @@ const ProductDetail = ({ addToCart, cartCount }) => {
             </button>
           </div>
 
-          <div className="social-share">
-            <a href="#"><i className="fab fa-whatsapp"></i></a>
-            <a href="#"><i className="fab fa-instagram"></i></a>
-            <a href="#"><i className="fab fa-pinterest"></i></a>
-          </div>
+        
         </div>
       </section>
 

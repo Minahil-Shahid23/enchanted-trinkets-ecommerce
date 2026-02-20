@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-
+const BASE_URL = 'https://enchanted-backend.vercel.app';
 const WeeklyLineup = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -9,7 +9,7 @@ const WeeklyLineup = () => {
   useEffect(() => {
     const fetchWeeklyProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:8025/api/weekly-products');
+const res = await axios.get(`${BASE_URL}/api/weekly-products`);
         setProducts(res.data);
       } catch (err) {
         console.error('Error fetching weekly products:', err);

@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "../styles/admin.css";
 
-const BASE_URL = 'http://localhost:8025';
+const BASE_URL = 'https://enchanted-backend.vercel.app';
 
 export default function AdminPanel() {
   const [activeSection, setActiveSection] = useState('dashboard');
@@ -32,8 +32,7 @@ export default function AdminPanel() {
       ]);
       setProducts(pRes.data);
       setOrders(oRes.data);
-      setContacts(cRes.data.data || []);
-      setWeeklyProducts(wRes.data);
+setContacts(Array.isArray(cRes.data) ? cRes.data : cRes.data.data || []);      setWeeklyProducts(wRes.data);
     } catch (err) { 
       console.error("Fetch error:", err); 
     }
@@ -155,7 +154,7 @@ export default function AdminPanel() {
                     <option value="Necklace">Necklace</option>
                     <option value="Earring">Earrings</option>
                     <option value="Bracelet">Bracelet</option>
-                    <option value="Charms">Charms</option>
+                    <option value="Charm">Charm</option>
                 </select>
               </div>
               <textarea placeholder="Product Description" value={productForm.description} onChange={e => setProductForm({...productForm, description: e.target.value})} style={{width: '100%', marginTop: '10px'}} />

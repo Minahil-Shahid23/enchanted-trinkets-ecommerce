@@ -5,6 +5,9 @@ import '../styles/checkout.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+// 1. Live Backend URL yahan add kiya
+const BASE_URL = 'https://enchanted-backend.vercel.app';
+
 const Checkout = () => {
   const navigate = useNavigate();
   const [cartItems, setCartItems] = useState([]);
@@ -66,7 +69,8 @@ const Checkout = () => {
     };
 
     try {
-      const response = await axios.post("http://localhost:8025/api/orders", orderData);
+      // 2. Localhost ko BASE_URL se replace kar diya
+      const response = await axios.post(`${BASE_URL}/api/orders`, orderData);
 
       if (response.status === 201 || response.status === 200) {
         const orderId = response.data._id || "SUCCESS";
@@ -75,6 +79,7 @@ const Checkout = () => {
         navigate("/");
       }
     } catch (error) {
+      console.error("Order error:", error.response?.data);
       setIsShaking(true);
       setTimeout(() => setIsShaking(false), 500);
       const serverMsg = error.response?.data?.message || error.response?.data?.error;
@@ -96,16 +101,7 @@ const Checkout = () => {
             <h2>Checkout</h2>
 
             {errorMsg && (
-              <div
-                className="pay-now-msg"
-                style={{
-                  background: '#ffeded',
-                  color: 'red',
-                  padding: '10px',
-                  marginBottom: '15px',
-                  borderRadius: '5px'
-                }}
-              >
+              <div className="pay-now-msg" style={{ background: '#ffeded', color: 'red', padding: '10px', marginBottom: '15px', borderRadius: '5px' }}>
                 {errorMsg}
               </div>
             )}
@@ -150,7 +146,6 @@ const Checkout = () => {
 
           <div className="cart-summary">
             <h3>Review your cart</h3>
-
             <div className="summary-items-list">
               {cartItems.map((item, index) => (
                 <div className="cart-item" key={item._id || item.id || index}>
@@ -170,7 +165,6 @@ const Checkout = () => {
             </div>
           </div>
         </div>
-
         <Footer />
       </div>
     </>

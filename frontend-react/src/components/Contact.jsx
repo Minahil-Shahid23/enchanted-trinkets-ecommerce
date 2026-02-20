@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// Live Backend ka URL
+const BASE_URL = 'https://enchanted-backend.vercel.app';
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     fullname: '',
@@ -20,7 +23,8 @@ const Contact = () => {
     setStatus('Sending...');
 
     try {
-      const response = await axios.post('http://localhost:8025/api/contact', {
+      // Localhost ko BASE_URL se replace kar diya
+      const response = await axios.post(`${BASE_URL}/api/contact`, {
         fullname: formData.fullname,
         email: formData.email,
         interest: formData.interest,

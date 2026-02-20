@@ -16,8 +16,7 @@ const Products = ({ cartCount }) => {
         const categoryFilter = params.get("category");
         const searchQuery = params.get("search"); // 1. Search term pakra
 
-        const response = await axios.get('http://localhost:8025/api/products');
-        const allData = response.data.data || response.data;
+const response = await axios.get('https://enchanted-backend.vercel.app/api/products');        const allData = response.data.data || response.data;
 
         let filteredData = allData;
 

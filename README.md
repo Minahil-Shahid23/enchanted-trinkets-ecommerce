@@ -79,17 +79,11 @@ Visit [http://localhost:3000](https://www.google.com/search?q=http://localhost:3
 ## Project Structure
 
 ```
-enchanted-trinkets/
-├── models/                # MongoDB Schemas (Products, Orders)
-├── routes/                # Express API Endpoints
-├── client/                # React Frontend
-│   ├── src/
-│   │   ├── components/    # Reusable UI (Navbar, Cards, Footer)
-│   │   ├── pages/         # Home, Shop, Product Detail, Admin, Cart
-│   │   ├── context/       # Global State (Cart Context)
-│   │   └── utils/         # API & Helper functions
-├── public/                # Static assets & images
-└── server.js              # Entry point for Node/Express
+Enchanted-Trinkets/
+├── Backend/               # Node.js & Express API, MongoDB Models
+├── frontend-react/        # React.js SPA with Tailwind CSS
+├── .gitignore             # Standard git ignore file
+└── README.md              # Project documentation
 
 ```
 

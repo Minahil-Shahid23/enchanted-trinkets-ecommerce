@@ -1,77 +1,114 @@
-# ✨ Enchanted Trinkets - Full Stack MERN Jewelry Store
+# Enchanted Trinkets 💍
 
-Enchanted Trinkets ek modern e-commerce platform hai jo handmade jewelry ke liye banaya gaya hai. Yeh project **MERN Stack** (MongoDB, Express.js, React, Node.js) par mabni hai aur ismein products showcase karne se lekar checkout tak ka poora flow shamil hai.
+**Elegant Jewelry. Timeless Memories. Handcrafted for You.**
 
----
+A full-stack MERN e-commerce platform designed for a premium jewelry brand, featuring a dynamic storefront and a robust administrative backend.
 
-## 🚀 Features
+## Overview
 
-- **Dynamic Product Filtering:** Category ke hisaab se products ko filter karne ki salahiyat.
-- **Smart Product Details:** Har item ke liye size selection aur quantity control.
-- **Mini-Cart Popup:** Item add karne par instant feedback aur quick navigation.
-- **Persistent Cart:** LocalStorage ka istemal taake refresh karne par cart khali na ho.
-- **Related Products:** AI-style "You May Also Like" section jo same category ke random products dikhata hai.
-- **Responsive Design:** Mobile, Tablet, aur Desktop par behtreen experience.
-- **Admin Panel:** Products ko manage aur upload karne ke liye backend integration.
+Enchanted Trinkets is a **full-stack MERN e-commerce application** that provides a seamless shopping experience for handcrafted jewelry. Built with the modern MERN stack (MongoDB, Express, React, Node.js), it features a responsive storefront for users and a comprehensive Admin Dashboard for inventory and order management. The platform integrates **Cloudinary** for high-performance image hosting and **Vercel** for automated CI/CD deployment.
 
----
+## Features
 
-## 🛠️ Tech Stack
+- **Dynamic Storefront** — Responsive catalog with category-based filtering (Rings, Necklaces, Charms).
+- **Product Discovery** — 10+ unique product detail views powered by dynamic routing.
+- **Admin Dashboard** — Full CRUD operations for product management and system statistics.
+- **Media Management** — Optimized jewelry images hosted via Cloudinary API for fast loading.
+- **Persistent Shopping Cart** — Seamless cart flow with state management that saves user selections.
+- **Search Functionality** — Real-time product search to help users find specific trinkets easily.
+- **Responsive UI** — Fully optimized for mobile, tablet (Nest Hub), and desktop (Tailwind CSS).
+- **CI/CD Pipeline** — Automated deployment and production updates via GitHub and Vercel.
 
-**Frontend:**
-- React.js (Vite)
-- Axios (API Calls)
-- React Router Dom (Navigation)
-- CSS3 (Custom Styling)
+## Tech Stack
 
-**Backend:**
-- Node.js & Express.js
-- MongoDB & Mongoose (Database)
-- Multer & Cloudinary (Image Uploads)
-- Dotenv (Security)
+- **Frontend:** React.js, Tailwind CSS, React Router
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB Atlas
+- **Media Hosting:** Cloudinary API
+- **State Management:** React Context API & Hooks
+- **Deployment:** Vercel (Production Hosting)
 
----
+## Getting Started
 
-## 📁 Project Structure
+### Prerequisites
 
-```text
-enchanted-trinkets/
-├── Backend/           # Node.js API & Database Models
-└── frontend-react/    # React Frontend (Vite)
+- Node.js 18+
+- MongoDB Atlas account
+- Cloudinary API credentials
 
-```
+### Installation
 
----
-
-## ⚙️ Installation & Setup
-
-1. **Clone the repository:**
 ```bash
-git clone [https://github.com/Minahil-Shahid23/enchanted-trinkets-ecommerce.git](https://github.com/Minahil-Shahid23/enchanted-trinkets-ecommerce.git)
-cd enchanted-trinkets
+# Clone the repository
+git clone [https://github.com/your-username/enchanted-trinkets.git](https://github.com/your-username/enchanted-trinkets.git)
 
-```
-
-
-2. **Setup Backend:**
-```bash
-cd Backend
+# Install dependencies
 npm install
-# Create a .env file and add your MONGODB_URI & Port
-npm start
+cd client && npm install
 
 ```
 
+### Environment Setup
 
-3. **Setup Frontend:**
+Create a `.env` file in the root directory:
+
+```env
+# Database
+MONGO_URI="your-mongodb-connection-string"
+
+# Cloudinary
+CLOUDINARY_CLOUD_NAME="your-cloud-name"
+CLOUDINARY_API_KEY="your-api-key"
+CLOUDINARY_API_SECRET="your-api-secret"
+
+# App URL
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+
+```
+
+### Run Development Server
+
 ```bash
-cd ../frontend-react
-npm install
+# Run backend and frontend concurrently
 npm run dev
 
 ```
 
+Visit [http://localhost:3000](https://www.google.com/search?q=http://localhost:3000)
 
+## Project Structure
 
----
+```
+enchanted-trinkets/
+├── models/                # MongoDB Schemas (Products, Orders)
+├── routes/                # Express API Endpoints
+├── client/                # React Frontend
+│   ├── src/
+│   │   ├── components/    # Reusable UI (Navbar, Cards, Footer)
+│   │   ├── pages/         # Home, Shop, Product Detail, Admin, Cart
+│   │   ├── context/       # Global State (Cart Context)
+│   │   └── utils/         # API & Helper functions
+├── public/                # Static assets & images
+└── server.js              # Entry point for Node/Express
 
+```
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+| --- | --- | --- |
+| GET | `/api/products` | Fetch all jewelry products |
+| GET | `/api/products/:id` | Get single product detail |
+| POST | `/api/products` | Add new product (Admin) |
+| PUT | `/api/products/:id` | Update product info (Admin) |
+| DELETE | `/api/products/:id` | Delete product (Admin) |
+| GET | `/api/admin/stats` | Get store statistics |
+| POST | `/api/orders` | Submit new customer order |
+
+## Technical Highlights
+
+* **Dynamic Routing:** Handled hundreds of products via a single dynamic detail template using `react-router-dom`.
+* **Image Optimization:** Integrated Cloudinary’s REST API to deliver lightweight, high-resolution assets.
+* **Responsive Breakpoints:** Custom-tuned CSS for unique screen resolutions like Nest Hub (1024x600).
+* **Reusable Architecture:** Built a library of modular React components to ensure code maintainability.
+* **Production Deployment:** Configured environment variables and secure API headers for Vercel deployment.
